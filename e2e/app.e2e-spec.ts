@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('viztoo App', () => {
+describe('contactmanager App', () => {
   let page: AppPage;
 
   beforeEach(() => {
