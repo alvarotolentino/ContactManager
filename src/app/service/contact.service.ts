@@ -11,7 +11,7 @@ import 'rxjs/add/observable/of';
 import { IContact } from '../model/icontact';
 
 @Injectable()
-export class ContactServiceService {
+export class ContactService {
 
   private baseUrl = 'api/contacts';
   private headers = new Headers({ 'Content-Type': 'application/json' });

@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 
 import { NavbarComponent } from './navbar.component';
-import { ContactServiceService } from '../service/contact-service.service';
+import { ContactService } from '../service/contact.service';
 
 @NgModule({
   imports: [
@@ -21,6 +21,6 @@ import { ContactServiceService } from '../service/contact-service.service';
   exports: [
     NavbarComponent
   ],
-  providers: [ContactServiceService]
+  providers: [ContactService]
 })
 export class SidenavbarModule { }
