@@ -1,7 +1,18 @@
-<!-- Colored FAB button -->
-<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect mdl-shadow--6dp">
-    <i class="material-icons">add</i>
-  </button>
-<p>
-  navbar works!
-</p>
+<span class="mdl-layout-title mdl-color--primary-dark mdl-color-text--primary-contrast">{{pageTitle}}</span>
+<nav class="nav-navigation mdl-navigation">
+
+  <ul *ngIf='contacts && contacts.length' class='mdl-list'>
+    <li *ngFor='let contact of contacts ' class="mdl-list__item mdl-list__item--two-line" role="presentation">
+      <span class="mdl-list__item-primary-content">
+          <i class="material-icons mdl-list__item-avatar">account_circle_white</i>
+          <span>{{contact.name}}</span>
+      <span class="mdl-list__item-sub-title">{{contact.cellphone}}</span>
+      </span>
+    </li>
+  </ul>
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent"
+    id="add">
+      <i class="material-icons" >add</i>
+      <span class="visuallyhidden">Add</span>
+    </button>
+</nav>
