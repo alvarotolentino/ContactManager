@@ -55,7 +55,7 @@ export class ContactData implements InMemoryDbService {
                 'avatar': 'L',
             },
             {
-                'id': 4,
+                'id': 5,
                 'name': 'Miguel',
                 'email': 'luis.tolentino@ibm.com',
                 'streetAddress1': 'Begonias 415',
@@ -67,7 +67,7 @@ export class ContactData implements InMemoryDbService {
                 'avatar': 'L',
             },
             {
-                'id': 5,
+                'id': 6,
                 'name': 'Karen',
                 'email': 'luis.tolentino@ibm.com',
                 'streetAddress1': 'Begonias 415',
