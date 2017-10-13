@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { IContact } from '../model/icontact';
-import { ContactService } from '../service/contact.service';
 
 @Component({
-  selector: 'cm-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
-  providers: [ContactService]
+  styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
 
@@ -17,12 +15,10 @@ export class NavbarComponent implements OnInit {
   contacts: IContact[];
   selected: IContact;
 
-  constructor(private _contactService: ContactService) { }
+  constructor(private route: ActivatedRoute) { }
 
-  ngOnInit() {
-    this._contactService.getContacts()
-      .subscribe(contacts => this.contacts = contacts,
-      error => this.errorMessage = <any>error);
+  ngOnInit(): void {
+    this.contacts = this.route.snapshot.data['contacts'];
   }
 
 }

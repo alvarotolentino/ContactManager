@@ -1,18 +1,23 @@
-<span class="mdl-layout-title mdl-color--primary-dark mdl-color-text--primary-contrast">{{pageTitle}}</span>
-<nav class="nav-navigation mdl-navigation">
-
-  <ul *ngIf='contacts && contacts.length' class='mdl-list'>
-    <li *ngFor='let contact of contacts ' class="mdl-list__item mdl-list__item--two-line" role="presentation">
-      <span class="mdl-list__item-primary-content">
+<div class="mdl-layout">
+  <header class="mdl-layout__header mdl-layout__header-row">
+    <span class="mdl-layout-title">{{pageTitle}}</span>
+  </header>
+  <nav class="mdl-navigation">
+    <ul *ngIf='contacts && contacts.length' class='mdl-list'>
+      <li *ngFor='let contact of contacts ' class="mdl-list__item mdl-list__item--two-line" role="presentation">
+        <span class="mdl-list__item-primary-content" 
+        [routerLink]="['/contacts', contact.id]" id="{{contact.id}}">
           <i class="material-icons mdl-list__item-avatar">account_circle_white</i>
           <span>{{contact.name}}</span>
-      <span class="mdl-list__item-sub-title">{{contact.cellphone}}</span>
-      </span>
-    </li>
-  </ul>
-  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent"
-    id="add">
-      <i class="material-icons" >add</i>
-      <span class="visuallyhidden">Add</span>
-    </button>
-</nav>
+        <span class="mdl-list__item-sub-title">{{contact.cellphone}}</span>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <div class="mdl-layout-spacer"></div>
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" id="add">
+    <i class="material-icons" >add</i>
+    <span class="visuallyhidden">Add</span>
+  </button>
+  <br>
+</div>

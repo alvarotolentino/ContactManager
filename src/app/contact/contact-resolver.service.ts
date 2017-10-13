@@ -4,9 +4,9 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@a
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/map';
+import 'rxjs/add/operator/map';
 
-import { ContactService } from './contact.service';
+import { ContactService } from '../service/contact.service';
 import { IContact } from '../model/icontact';
 
 @Injectable()
@@ -23,16 +23,16 @@ export class ContactResolver implements Resolve<IContact> {
     }
 
     return this.contactService.getContact(+id)
-    .map(contact => {
-      if (contact) {
-        return contact;
-      }
-      this.router.navigate(['/contacts']);
-      return null;
-    })
-    .catch(error => {
-      this.router.navigate(['/products']);
-      return Observable.of(null);
-    });
+      .map(contact => {
+        if (contact) {
+          return contact;
+        }
+        this.router.navigate(['/contacts']);
+        return null;
+      })
+      .catch(error => {
+        this.router.navigate(['/contacts']);
+        return Observable.of(null);
+      });
   }
 }

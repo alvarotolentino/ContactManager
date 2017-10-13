@@ -7,21 +7,23 @@ import { ContactData } from './model/contact-data';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ContactModule } from './contact/contact.module';
 import { SidenavbarModule } from './sidenavbar/sidenavbar.module';
 import { SharedModule } from './shared/shared.module';
+import { WelcomeComponent } from './home/welcome.component';
+import { PageNotFoundComponent } from './page-not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WelcomeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(ContactData, {delay: 1000}),
+    InMemoryWebApiModule.forRoot(ContactData, { delay: 10 }),
     AppRoutingModule,
     SidenavbarModule,
-    ContactModule,
     SharedModule
   ],
   providers: [],

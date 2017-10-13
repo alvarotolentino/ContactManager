@@ -7,20 +7,28 @@ import { SharedModule } from '../shared/shared.module';
 
 import { NavbarComponent } from './navbar.component';
 import { ContactService } from '../service/contact.service';
+import { NavbarResolver } from './navbar-resolver.service';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
     FormsModule,
-    RouterModule
+    RouterModule.forChild([
+      {
+        path: '',
+        component: NavbarComponent,
+        resolve: { contacts: NavbarResolver },
+        outlet: 'navbar'
+      }
+    ])
   ],
   declarations: [
     NavbarComponent
   ],
-  exports: [
-    NavbarComponent
-  ],
-  providers: [ContactService]
+  providers: [
+    ContactService,
+    NavbarResolver
+  ]
 })
 export class SidenavbarModule { }
